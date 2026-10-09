@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Wall
+  - Enemy
+  - L1End
+  - Fire
+  - BoltCheck
+  - L2End
+  - Toxic
+  - Moving
+  - L1
+  - L2
+  - L3End
+  - Potion
+  - Tut1
+  - Tut2
+  - Tut3
+  - Tut4
+  - BadGuy
+  - L3
+  - FireBall
+  - BoltCheck1
+  - BoltCheck2
+  - BoltCheck3
+  - BoltCheck4
+  - Ranged Enemy
+  - L2Death
+  - L3Death
+  - HelpEnd
+  - TutHealthLoss
+  - Arrow
+  - Checkpoint
+  - EnemySword
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Ground
+  - Enemy
+  - EnemyRanged
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 2144575597
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Midground
+    uniqueID: 819878707
+    locked: 0
+  - name: Player
+    uniqueID: 877010539
+    locked: 0
+  - name: Enemy
+    uniqueID: 3949030307
+    locked: 0
+  - name: Foreground
+    uniqueID: 2707169521
+    locked: 0
+  - name: Front
+    uniqueID: 1777015043
+    locked: 0

@@ -1,0 +1,3 @@
+rep "Magic Platformer@Lucas_Jones@cloud"
+  path "/"
+    smartbranch "/main"
