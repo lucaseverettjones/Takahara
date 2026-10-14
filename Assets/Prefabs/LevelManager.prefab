@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &7155177849204035916
 MonoBehaviour:
@@ -110,7 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 333622194660004243}
-  - component: {fileID: 312791392786069559}
+  - component: {fileID: 4134677346544270027}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &312791392786069559
+--- !u!114 &4134677346544270027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,6 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e0dc1742f7de8469ef24e971c1a4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: 
+  disableFadeInAnimation: 0
 --- !u!1 &8824422925160418646
 GameObject:
   m_ObjectHideFlags: 0

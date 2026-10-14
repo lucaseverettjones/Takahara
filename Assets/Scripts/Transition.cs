@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TransitionHandler : MonoBehaviour
+public class Transition : MonoBehaviour
 {
     // Loading scene name
     [SerializeField] private string nextScene = "";
