@@ -22226,6 +22226,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7052694459842214377, guid: 7efd51ef4932a7b4a9988a687b169e18, type: 3}
+      propertyPath: nextScene
+      value: Cutscene 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8725053905240327702, guid: 7efd51ef4932a7b4a9988a687b169e18, type: 3}
       propertyPath: m_Name
       value: LevelManager

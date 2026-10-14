@@ -110,7 +110,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 333622194660004243}
-  - component: {fileID: 4134677346544270027}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -134,20 +133,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4134677346544270027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8725053905240327702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e0dc1742f7de8469ef24e971c1a4f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: 
-  disableFadeInAnimation: 0
 --- !u!1 &8824422925160418646
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +146,7 @@ GameObject:
   - component: {fileID: 4954678338879215421}
   - component: {fileID: 4433516748458877242}
   - component: {fileID: 7015857946149054600}
+  - component: {fileID: 7052694459842214377}
   m_Layer: 0
   m_Name: Transition
   m_TagString: Untagged
@@ -258,3 +244,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7052694459842214377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824422925160418646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e0dc1742f7de8469ef24e971c1a4f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 
+  disableFadeInAnimation: 0

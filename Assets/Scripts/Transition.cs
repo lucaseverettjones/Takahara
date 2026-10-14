@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Transition : MonoBehaviour
 {
     // Loading scene name
-    [SerializeField] private string nextScene = "";
+    [SerializeField] public string nextScene = "";
     // Disable fade-in animation flag
     [SerializeField] private bool disableFadeInAnimation = false;
 
@@ -18,11 +18,16 @@ public class Transition : MonoBehaviour
         }
     }
 
+    public void SetNextScene(string name)
+    {
+        nextScene = name;
+    }
+
     // Triggered from the end of fade-out animation
-    void FadeOutFinished()
+    public void FadeOutFinished()
     {
         // Load of the next scene
-        Application.LoadLevel(1);
+        SceneManager.LoadScene(nextScene);
     }
 
 }

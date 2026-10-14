@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     public GameObject fireBallUI;
     [SerializeField] private Transform firePoint;
     public Animator anim;
+    Animator transitionAnimator;
+    Transition transition;
     public int playerHealth;
     public EnemyControllerAnim eController;
     public Ranged_Enemy rController;
@@ -85,6 +87,8 @@ public class PlayerController : MonoBehaviour
     {
         // target = null;
         PlayerRB = GetComponent<Rigidbody2D>();
+        transitionAnimator = GameObject.Find("Transition").GetComponent<Animator>();
+        transition = transitionAnimator.gameObject.GetComponent<Transition>();
         manaText.text = manaCount.ToString();
         StartCoroutine("ManaGen");
         lightningAvailable = false;
@@ -335,17 +339,17 @@ public class PlayerController : MonoBehaviour
         if(col.gameObject.tag == "L1End")
         {
             isCheckpoint = false;
-            SceneManager.LoadScene("Cutscene 3");
+            transitionAnimator.Play("fadeTransition_out");
         }
         if(col.gameObject.tag == "L2End")
         {
             isCheckpoint = false;
-            SceneManager.LoadScene("Cutscene 4");
+            transitionAnimator.Play("fadeTransition_out");
         }
         if(col.gameObject.tag == "L3End")
         {
             isCheckpoint = false;
-            SceneManager.LoadScene("Cutscene 5");
+            transitionAnimator.Play("fadeTransition_out");
         }
         if(col.gameObject.tag == "HelpEnd")
         {
@@ -409,7 +413,8 @@ public class PlayerController : MonoBehaviour
         }
         if(col.gameObject.tag == "L2Death")
         {
-            SceneManager.LoadScene("Level 2");
+            transition.nextScene = "Level 2";
+            transitionAnimator.Play("fadeTransition_out");
         }
         if(col.gameObject.tag == "L3Death")
         {
@@ -543,9 +548,9 @@ public class PlayerController : MonoBehaviour
         isPlaying = false;
         
         Debug.Log(lCheck);
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
+        yield return new WaitForSeconds(0.0f);
+        transition.nextScene = SceneManager.GetActiveScene().name;
+        transitionAnimator.Play("fadeTransition_out");
     }
 }
 
