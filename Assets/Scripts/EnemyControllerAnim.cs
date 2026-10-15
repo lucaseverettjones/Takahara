@@ -21,7 +21,7 @@ public class EnemyControllerAnim : MonoBehaviour
     [SerializeField] float jumpNodeHeighRequirement = 0.5f;
     [SerializeField] float jumpModifier = 1;
     [SerializeField] float jumpCheckOffset = 0.1f;
-    bool isGrounded;
+    bool isGrounded = false;
     Rigidbody2D rb;
     //Custom Behavior
     [Header("Custom Behavior")]
@@ -46,6 +46,7 @@ public class EnemyControllerAnim : MonoBehaviour
     LayerMask ground;
     BoxCollider2D box;
     RaycastHit2D cast;
+    bool jumpWait = true;
     
     void Start()
     {
@@ -155,10 +156,16 @@ public class EnemyControllerAnim : MonoBehaviour
         //Jump OR move
         if(isGrounded && jump && direction.y > jumpNodeHeighRequirement && !EnemyInRange())
         {
-            rb.AddForce(Vector2.up * speed * jumpModifier * direction.y * Time.deltaTime / Time.fixedDeltaTime, ForceMode2D.Impulse);
-            if(CanAct())
+            if(jumpWait)
             {
-                anim.Play(run, 0, 0f);
+                jumpWait = false;
+            } else
+            {
+                rb.AddForce(Vector2.up * speed * jumpModifier * direction.y * Time.deltaTime / Time.fixedDeltaTime, ForceMode2D.Impulse);
+                if (CanAct())
+                {
+                    anim.Play(run, 0, 0f);
+                }
             }
         } else if(direction.y < jumpNodeHeighRequirement)
         {
