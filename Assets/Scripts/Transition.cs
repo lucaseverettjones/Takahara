@@ -4,9 +4,24 @@ using UnityEngine.SceneManagement;
 public class Transition : MonoBehaviour
 {
     // Loading scene name
-    [SerializeField] public string nextScene = "";
+    [SerializeField] string nextScene = "";
     // Disable fade-in animation flag
     [SerializeField] private bool disableFadeInAnimation = false;
+    public static GameObject instance;
+
+    private void Awake()
+    {
+        GameObject grandparent = transform.parent.parent.gameObject;
+        if (instance != null && instance != grandparent)
+        {
+            Destroy(grandparent); // Destroy the duplicate object
+            return;
+        }
+        else
+        {
+            instance = grandparent;
+        }
+    }
 
     private void Start()
     {

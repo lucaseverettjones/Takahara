@@ -413,7 +413,7 @@ public class PlayerController : MonoBehaviour
         }
         if(col.gameObject.tag == "L2Death")
         {
-            transition.nextScene = "Level 2";
+            transition.SetNextScene("Level 2");
             transitionAnimator.Play("fadeTransition_out");
         }
         if(col.gameObject.tag == "L3Death")
@@ -549,7 +549,7 @@ public class PlayerController : MonoBehaviour
         
         Debug.Log(lCheck);
         yield return new WaitForSeconds(0.0f);
-        transition.nextScene = SceneManager.GetActiveScene().name;
+        transition.SetNextScene(SceneManager.GetActiveScene().name);
         transitionAnimator.Play("fadeTransition_out");
     }
 }
