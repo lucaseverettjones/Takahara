@@ -3765,7 +3765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3390, y: -210}
+  m_AnchoredPosition: {x: 3415, y: -210}
   m_SizeDelta: {x: 5900, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696181135
@@ -3792,7 +3792,7 @@ MonoBehaviour:
     to bring you breaking news. The Yakuza Clan has overrun the city and is dumping
     dangerous and hazardous waste into our urban areas. Please, civilians stay indoors
     as many of the Clan are still on the streets and are considered armed and dangerous.
-    Reports are saying that they're seeking refuge in the sacred Takahara Temple
+    Reports are saying that they're seeking refuge in the sacred Takahara temple
     on the outskirts of town and that they are holding Master Shifu hostage. Please,
     if you have any more information of this issue, please contact the JAN network
     as soon as possible. (God, if only a hero could stop this madness).
