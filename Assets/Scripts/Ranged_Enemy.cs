@@ -84,10 +84,23 @@ public class Ranged_Enemy : MonoBehaviour
             newArrow.GetComponent<Rigidbody2D>().AddTorque(-transform.localScale.x / 10, ForceMode2D.Impulse);
             yield return new WaitForSeconds(attackDelay/2);
             firing = false;
-        } else
-        {
-            yield break;
         }
+        if (!stunned && health > 0)
+        {
+            firing = true;
+            anim.Play(attack);
+            yield return new WaitForSeconds(attackDelay / 2);
+        }
+        if (!stunned && health > 0)
+        {
+            attackSound.Play();
+            GameObject newArrow = Instantiate(arrow, transform.position + new Vector3(offset * transform.localScale.x, vOffset, 0), Quaternion.Euler(0, 0, Angle()));
+            newArrow.GetComponent<Rigidbody2D>().AddForce(Vector3.right * force * transform.localScale.x, ForceMode2D.Impulse);
+            newArrow.GetComponent<Rigidbody2D>().AddTorque(-transform.localScale.x / 10, ForceMode2D.Impulse);
+            yield return new WaitForSeconds(attackDelay / 2);
+            firing = false;
+        }
+        yield break;
     }
 
     public IEnumerator TakeDamage(int damage)

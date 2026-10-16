@@ -1,7 +1,8 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
-using Pathfinding;
 
 public class EnemyControllerAnim : MonoBehaviour
 {
@@ -54,6 +55,7 @@ public class EnemyControllerAnim : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.Find("Player").GetComponent<Transform>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        seeker.StartPath(rb.position, target.position, OnPathComplete);
         StartCoroutine("UpdatePath");
         ground = LayerMask.GetMask("Ground");
         box = GetComponent<BoxCollider2D>();
@@ -155,7 +157,12 @@ public class EnemyControllerAnim : MonoBehaviour
         //Jump OR move
         if(isGrounded && jump && direction.y > jumpNodeHeighRequirement && !EnemyInRange())
         {
-            rb.AddForce(Vector2.up * speed * jumpModifier * direction.y * Time.deltaTime / Time.fixedDeltaTime, ForceMode2D.Impulse);
+            float jumpForce = speed * jumpModifier * direction.y * Time.deltaTime / Time.fixedDeltaTime;
+            if(jumpForce > 2)
+            {
+                jumpForce = 2;
+            }
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             if (CanAct())
             {
                 anim.Play(run, 0, 0f);
@@ -192,9 +199,11 @@ public class EnemyControllerAnim : MonoBehaviour
 
     IEnumerator UpdatePath()
     {
-        seeker.StartPath(rb.position, target.position, OnPathComplete);
-        yield return new WaitForSeconds(pathUpdateSeconds);
-        StartCoroutine("UpdatePath");
+        while(true)
+        {
+            seeker.StartPath(rb.position, target.position, OnPathComplete);
+            yield return new WaitForSeconds(pathUpdateSeconds);
+        }
     }
 
     void OnPathComplete(Path p)
