@@ -46,7 +46,6 @@ public class EnemyControllerAnim : MonoBehaviour
     LayerMask ground;
     BoxCollider2D box;
     RaycastHit2D cast;
-    bool jumpWait = true;
     
     void Start()
     {
@@ -156,16 +155,10 @@ public class EnemyControllerAnim : MonoBehaviour
         //Jump OR move
         if(isGrounded && jump && direction.y > jumpNodeHeighRequirement && !EnemyInRange())
         {
-            if(jumpWait)
+            rb.AddForce(Vector2.up * speed * jumpModifier * direction.y * Time.deltaTime / Time.fixedDeltaTime, ForceMode2D.Impulse);
+            if (CanAct())
             {
-                jumpWait = false;
-            } else
-            {
-                rb.AddForce(Vector2.up * speed * jumpModifier * direction.y * Time.deltaTime / Time.fixedDeltaTime, ForceMode2D.Impulse);
-                if (CanAct())
-                {
-                    anim.Play(run, 0, 0f);
-                }
+                anim.Play(run, 0, 0f);
             }
         } else if(direction.y < jumpNodeHeighRequirement)
         {
